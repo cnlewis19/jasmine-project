@@ -62,15 +62,34 @@ $(function() {
       });
       });
 
-
+    //Matthew Cranford's walkthrough was helpful in identifying how to call out the feed children.
     describe('Initial Entries', function() {
+      //This test allows the feed to load and then checks to make sure that there is at least one entry in the feed.
       beforeEach(function(done) {
-        loadFeed(0);
-        done();
-      })
-      const entries = document.getElementsByClassName('.entry').length;
+        loadFeed(0, done);
+      });
+      const feed= document.querySelector('.feed');
       it('loadFeed completes and contains entries', function() {
-        expect(entries).toBeGreaterThan(-1);
+        expect(feed.children.length).toBeGreaterThan(0);
       });
     });
+
+    //Ryan Boris' Udacity FEND P4 Walkthrough was essential in solving this section.
+      describe('New Feed Selection', function(){
+        let firstArticle;
+        let secondArticle;
+        beforeEach(function(done) {
+          loadFeed(0);
+          firstArticle = document.getElementsByTagName('h2')[0].innerText;
+          done();
+        });
+        afterEach(function(done) {
+          loadFeed(1);
+          secondArticle = document.getElementsByTagName('h2')[0].innerText;
+          done();
+        });
+        it('changes as feeds are loaded', function() {
+          expect(firstArticle).not.toEqual(secondArticle);
+        })
+      });
 }());
