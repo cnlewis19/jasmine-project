@@ -74,19 +74,18 @@ $(function() {
       });
     });
 
-    //Ryan Boris' Udacity FEND P4 Walkthrough was essential in solving this section.
+    //S.C. and Sara Krum's discussion on Slack about what an Udacity review recommended was the basis of some of this code.
       describe('New Feed Selection', function(){
-        let firstArticle;
-        let secondArticle;
-        beforeEach(function(done) {
-          loadFeed(0);
-          firstArticle = document.getElementsByTagName('h2')[0].innerText;
-          done();
-        });
-        afterEach(function(done) {
-          loadFeed(1);
-          secondArticle = document.getElementsByTagName('h2')[0].innerText;
-          done();
+        let firstArticle = document.querySelector('.feed');
+        let secondArticle = document.querySelector('.feed');
+        beforeEach(function(done){
+          loadFeed(0, function(){
+            firstArticle = firstArticle.innerHTML;
+          });
+          loadFeed(1, function() {
+            secondArticle = secondArticle.innerHTML;
+            done();
+          });
         });
         it('changes as feeds are loaded', function() {
           expect(firstArticle).not.toEqual(secondArticle);
