@@ -23,4 +23,3 @@ The following resources were extremely helpful in building this project. Comment
 [Jasmine Documentation](https://jasmine.github.io/)
 Udacity starter code
 Udacity FEND P4 Walkthrough [Ryan Boris](https://www.youtube.com/watch?v=7kOBXPbDmyw&feature=player_embedded)
-Feed Reader Walkthrough Part 4- Async Tests [Matthew Cranford](https://matthewcranford.com/feed-reader-walkthrough-part-4-async-tests/)

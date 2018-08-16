@@ -62,15 +62,15 @@ $(function() {
       });
       });
 
-    //Matthew Cranford's walkthrough was helpful in identifying how to call out the feed children.
     describe('Initial Entries', function() {
       //This test allows the feed to load and then checks to make sure that there is at least one entry in the feed.
       beforeEach(function(done) {
         loadFeed(0, done);
       });
-      const feed= document.querySelector('.feed');
       it('loadFeed completes and contains entries', function() {
-        expect(feed.children.length).toBeGreaterThan(0);
+        const entries= document.querySelector('.feed').querySelectorAll('.entry');
+        const entryLength = entries.length;
+        expect(entryLength).toBeGreaterThan(0);
       });
     });
 
