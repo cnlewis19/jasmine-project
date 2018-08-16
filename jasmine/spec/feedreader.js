@@ -57,6 +57,7 @@ $(function() {
         if(callback.calls.count() % 2 === 0) {
           expect(body).toHaveClass("menu-hidden");
         } else {
+          $('.menu-icon-link').trigger('click');
           expect(body).toHaveClass("menu-hidden").toBe(false);
         }
       });
