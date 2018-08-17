@@ -49,16 +49,16 @@ $(function() {
       const body = document.querySelector('body');
       const callback = jasmine.createSpy('body', 'toggleClass');
       it('menu is hidden', function() {
-        expect(body).toHaveClass("menu-hidden");
+        expect(body.classList.contains("menu-hidden")).toBe(true);
         expect(callback).not.toHaveBeenCalled();
       });
       //This test makes sure that the visibility changes when clicked.
       it('menu visibility changes on click', function(){
         if(callback.calls.count() % 2 === 0) {
-          expect(body).toHaveClass("menu-hidden");
+          expect(body.classList.contains("menu-hidden")).toBe(true);
         } else {
           $('.menu-icon-link').trigger('click');
-          expect(body).toHaveClass("menu-hidden").toBe(false);
+          expect(body.classList.contains("menu-hidden")).toBe(false);
         }
       });
       });
