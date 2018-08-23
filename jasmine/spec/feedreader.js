@@ -54,11 +54,10 @@ $(function() {
       });
       //This test makes sure that the visibility changes when clicked.
       it('menu visibility changes on click', function(){
-        if(callback.calls.count() % 2 === 0) {
-          expect(body.classList.contains("menu-hidden")).toBe(true);
-        } else {
-          $('.menu-icon-link').trigger('click');
-          expect(body.classList.contains("menu-hidden")).toBe(false);
+        $(".menu-icon-link").click();
+        expect(body).hasClass("menu-hidden")).not.toBe(true);
+        $(".menu-icon-link").click();
+        expect(body).hasClass("menu-hidden")).toBe(true);
         }
       });
       });
@@ -82,10 +81,9 @@ $(function() {
         beforeEach(function(done){
           loadFeed(0, function(){
             firstArticle = firstArticle.innerHTML;
-          });
-          loadFeed(1, function() {
-            secondArticle = secondArticle.innerHTML;
-            done();
+            loadFeed(1, function() {
+              secondArticle = secondArticle.innerHTML;
+              done();
           });
         });
         it('changes as feeds are loaded', function() {
